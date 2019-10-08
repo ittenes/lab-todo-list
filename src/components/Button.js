@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Button extends Component {
   deleteItem = () => {};
@@ -9,7 +9,7 @@ class Button extends Component {
     return (
       <button
         onClick={() => {
-          deleteItem();
+          this.deleteItem();
         }}
       >
         {children}
