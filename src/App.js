@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import ListTask from "./components/ListTask";
+
+class App extends Component {
+  state = {
+    tasks: ["una tarea", "dos tareas"],
+  };
+
+  deleteTask = () => {};
+
+  render() {
+    const { tasks } = this.state;
+    return (
+      <div className="App">
+        <h1>ToDo List</h1>
+        <input></input>
+        <button></button>
+        <ul>
+          {tasks.map((task, index) => {
+            return (
+              <ListTask
+                key={index}
+                id={index}
+                task={task}
+                onDelete={this.deleteTask}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default App;
